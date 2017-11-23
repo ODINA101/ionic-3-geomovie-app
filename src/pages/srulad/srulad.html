@@ -1,0 +1,17 @@
+
+<ion-header>
+
+  <ion-navbar color={{rand}}>
+    <ion-title>{{item.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<img src="{{item.photo}}" style="width:100%" alt="">
+
+<h3>აღწერა</h3><ion-card padding> 
+<p>{{item.description}}</p></ion-card>
+<button ion-button (click)="videoshow()" color="secondary">ფილმის ყურება</button>
+</ion-content>

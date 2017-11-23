@@ -1,18 +1,31 @@
+ 
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="danger">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    
+    <ion-title>მთავარი</ion-title>
+
   </ion-navbar>
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="ძიება"></ion-searchbar>
+  
 </ion-header>
 
+
+
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <ion-card style="width:70%;margin:auto" *ngFor="let item of items">
+    <img src="{{item.photo}}" style="height:70%"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{item.name}}
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+        </ion-card-title>
+        Imdb:<ion-badge item-end>{{item.imdb}}</ion-badge><br>
+        <button ion-button color="dark" outline (click)="srulad(item.name,item.description,item.photo,item.videoSD,item.videoHD)">სრულად</button>        
+        <button ion-button color="dark" (click)="agwera(item.description)">აღწერა</button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+

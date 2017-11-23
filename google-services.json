@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "439505540900",
+    "firebase_url": "https://movies-7b17f.firebaseio.com",
+    "project_id": "movies-7b17f",
+    "storage_bucket": "movies-7b17f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439505540900:android:0739d96c02f345fb",
+        "android_client_info": {
+          "package_name": "irakli.samniashvili.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "439505540900-p0givi80sbq1ram66ka6hcll2ca7b49o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDS-Jo_eVMk1036BpATnhdox_zlJENbUEQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

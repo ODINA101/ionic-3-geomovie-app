@@ -1,0 +1,18 @@
+{
+     "android": {
+         "debug": {
+             "keystore": "cert.keystore",
+             "storePassword": "password22",
+             "alias": "alias-name",
+             "password" : "password22",
+             "keystoreType": ""
+         },
+         "release": {
+             "keystore": "cert.keystore",
+             "storePassword": "password22",
+             "alias": "alias-name",
+             "password" : "password22",
+             "keystoreType": ""
+         }
+     }
+ }
