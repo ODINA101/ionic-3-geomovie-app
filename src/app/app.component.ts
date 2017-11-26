@@ -3,22 +3,10 @@ import { Nav, Platform } from 'ionic-angular';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AnimaciuriPage } from '../pages/animaciuri/animaciuri';
-import { BiografiuliPage } from '../pages/biografiuli/biografiuli';
-import { BoevikiPage } from '../pages/boeviki/boeviki';
+ 
 
-import { DokumenturiPage } from '../pages/dokumenturi/dokumenturi';
-import { DramaPage } from '../pages/drama/drama';
-import { FantastikaPage } from '../pages/fantastika/fantastika';
-import { IstoriuliPage } from '../pages/istoriuli/istoriuli';
-import { KomediurPage } from '../pages/komediur/komediur';
-import { MistikuriPage } from '../pages/mistikuri/mistikuri';
-import { SashinelebaPage } from '../pages/sashineleba/sashineleba';
-import { SatavgadasavloPage } from '../pages/satavgadasavlo/satavgadasavlo';
-import { TrileriPage } from '../pages/trileri/trileri';
 import { SocialSharing } from '@ionic-native/social-sharing';
-import {MdzafrsiujetianiPage } from '../pages/mdzafrsiujetiani/mdzafrsiujetiani';
-
+import {KategoriaPage} from '../pages/kategoria/kategoria';
 import { HomePage } from '../pages/home/home';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 @Component({
@@ -30,7 +18,7 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any,url:any}>;
 
   constructor(public socialSharing:SocialSharing,public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
     public localNotifications: LocalNotifications) {
@@ -38,22 +26,22 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'მთავარი', component: HomePage },
-      { title: 'ანიმაციური', component: AnimaciuriPage },
-      {title:'საშინელება',component:SashinelebaPage},
-      { title: 'სათავგადასავლო', component: SatavgadasavloPage },
-      { title: 'ისტორიული', component: IstoriuliPage },
-      {title:'კომედიური',component:KomediurPage},
-      { title: 'ფანტასტიკური', component: FantastikaPage },
-      { title: 'დრამა', component: DramaPage },
-      { title: 'დოკუმენტრური', component: DokumenturiPage  },
-      { title: 'ბოევიკი', component: BoevikiPage },
-      { title: 'ბიოგრაფიული', component: BiografiuliPage },
-      { title:'მძაფრსიუჟეტიანი',component:MdzafrsiujetianiPage },
-      {title:'თრილერი',component:TrileriPage},
-      {title:'მისტიკური',component:MistikuriPage}
-      
-
+      { title: 'მთავარი', component: KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=home'},
+      { title: 'ანიმაციური', component: KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=animaciuri'},
+      {title:'საშინელება',component:KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=sashineleba'},
+      { title: 'სათავგადასავლო', component:KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=satavgadasavlo'},
+      { title: 'ისტორიული', component: KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=istoriuli'},
+      {title:'კომედიური',component:KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=komediuri'},
+      { title: 'ფანტასტიკური', component: KategoriaPage ,url:'https://myionicapp.000webhostapp.com/api.php?q=fantastika'},
+      { title: 'დრამა', component: KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=drama'},
+      { title: 'დოკუმენტრური', component: KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=dokumenturi' },
+      { title: 'ბოევიკი', component:KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=boeviki' },
+      { title: 'ბიოგრაფიული', component: KategoriaPage ,url:'https://myionicapp.000webhostapp.com/api.php?q=biografiuli'},
+      { title:'მძაფრსიუჟეტიანი',component:KategoriaPage ,url:'https://myionicapp.000webhostapp.com/api.php?q=mdzafrsiujetiani'},
+      {title:'თრილერი',component:KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=trileri'},
+      {title:'მისტიკური',component:KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=mistikuri'},
+      {title:'კრიმინალური',component:KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=kriminaluri'}
+     
     ];
      
   }
@@ -92,6 +80,6 @@ shareItem() {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page.component,{title:page.title,url:page.url});
   }
 }

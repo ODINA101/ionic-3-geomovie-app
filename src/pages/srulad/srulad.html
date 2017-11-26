@@ -1,7 +1,7 @@
 
 <ion-header>
 
-  <ion-navbar color={{rand}}>
+  <ion-navbar color='dark' class="show-back-button" (click)="setroot()">
     <ion-title>{{item.name}}</ion-title>
   </ion-navbar>
 
@@ -14,4 +14,9 @@
 <h3>აღწერა</h3><ion-card padding> 
 <p>{{item.description}}</p></ion-card>
 <button ion-button (click)="videoshow()" color="secondary">ფილმის ყურება</button>
+<ion-tabs>
+  <ion-tab tabIcon="heart" [root]="tab1"></ion-tab>
+  <ion-tab tabIcon="star" [root]="tab2"></ion-tab>
+</ion-tabs>
 </ion-content>
+

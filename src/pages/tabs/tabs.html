@@ -1,0 +1,16 @@
+
+<ion-header>
+  
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+      <ion-title>{{tabParams.name}}</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+<ion-tabs>
+  <ion-tab tabIcon="videocam" [root]="tab1" [rootParams]="tabParams">test</ion-tab>
+  <ion-tab tabIcon="chatboxes" [root]="tab2" [rootParams]="tabParams" >test</ion-tab>
+</ion-tabs>

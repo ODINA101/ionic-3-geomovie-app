@@ -1,0 +1,38 @@
+ 
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>comments</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div>
+<button ion-button full (click)="loginWithFB()" *ngIf="!getdbData">შესვლა&nbsp;<ion-icon name="logo-facebook"></ion-icon></button>  
+</div>
+<div *ngIf="getdbData || userData">
+
+ 
+   <ion-item>
+       
+      <ion-input type="text" [(ngModel)]="commentText" placeholder="კომენტარის დამატება" row=2></ion-input>
+    </ion-item>
+  
+    <button *ngIf="commentText" ion-button full (click)="newcomment()">გამოქვეყნება</button>
+ </div>
+ <ion-list *ngFor="let i of comments | async">
+  
+     
+    <ion-item >
+      <ion-avatar item-start>
+        <img src="{{i.photo}}">
+      </ion-avatar>
+      <h2>{{i.name}}</h2>
+      <h3>{{i.comment}}</h3>
+
+    </ion-item>
+   
+  </ion-list>
+</ion-content>

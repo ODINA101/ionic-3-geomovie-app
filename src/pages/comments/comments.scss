@@ -1,0 +1,14 @@
+.text-input::-moz-placeholder {
+    color: rgb(88, 67, 67);
+  }
+  
+  .text-input:-ms-input-placeholder {
+    color: rgb(88, 67, 67);
+  }
+  
+  .text-input::-webkit-input-placeholder {
+    text-indent: 12;
+    color: rgb(88, 67, 67);
+    overflow: visible;
+    
+  }

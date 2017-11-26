@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="irakli.samniashvili.app" version="10.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="irakli.samniashvili.app" version="12.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>ფილმები
 ქართულად</name>
-    <description>საუკეთესო ონლაინ თეატრი.</description>
+    <description>საუკეთესო ონლაინ თეატრი. filmebi filmebi qartulad geo films onlain kinoteatri</description>
     <author email="iraklisamniashviliii@gmail.com" href="http://ionicframework.com/">ირაკლი სამნიაშვილი</author>
     <content src="index.html" />
     <access origin="*" />
@@ -80,6 +80,7 @@
     </platform>
     <allow-navigation href="http://192.168.1.106:8100" />
     <allow-navigation href="http://192.168.1.114:8100" />
+    <allow-navigation href="http://192.168.1.7:8100" />
     <engine name="android" spec="6.3.0" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
@@ -93,4 +94,10 @@
     <plugin name="cordova-plugin-streaming-media" spec="^1.0.2" />
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
     <plugin name="com.hutchind.cordova.plugins.streamingmedia" spec="~0.1.4" />
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
+        <variable name="APP_ID" value="3009323629083585" />
+        <variable name="APP_NAME" value="moviesApp" />
+    </plugin>
+    <plugin name="cordova-sqlite-storage" spec="^2.1.2" />
+    <plugin name="cordova-plugin-nativestorage" spec="^2.2.2" />
 </widget>

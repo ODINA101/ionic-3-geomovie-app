@@ -3,13 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {StreamingMedia,StreamingVideoOptions} from '@ionic-native/streaming-media';
 import { ActionSheetController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
-/**
- * Generated class for the SruladPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
+ import {HomePage} from '../home/home';
+ import { App } from 'ionic-angular';
 @IonicPage()
 @Component({
   selector: 'page-srulad',
@@ -23,14 +18,11 @@ export class SruladPage {
     videoSD:'',
     videoHD:''
   }
-  colors = ['danger','dark','default','primary'];
-  pp = Math.random()*4;
-  rand = this.colors[Math.floor(this.pp)];
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  
+  constructor(public app:App,public navCtrl: NavController, public navParams: NavParams,
              public SMedia:StreamingMedia,
              public actionSheetCtrl:ActionSheetController,
              public loadingCtrl: LoadingController) {
-  console.log(this.rand);
   
   this.item.name = this.navParams.get('name');
   this.item.description = this.navParams.get('des');
@@ -38,13 +30,15 @@ export class SruladPage {
 
   this.item.videoSD = this.navParams.get('videoSD');
   this.item.videoHD = this.navParams.get('videoHD');
-  
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SruladPage');
   }
-
+setroot() {
+  this.app.getRootNav().setRoot(HomePage);
+}
+ 
   videoshow() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'ფილმის ხარისხი',

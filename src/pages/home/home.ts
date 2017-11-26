@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {SruladPage} from '../srulad/srulad';
+import {TabsPage} from '../../pages/tabs/tabs';
 import { AlertController,Platform } from 'ionic-angular';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { LoadingController } from 'ionic-angular';
 import { FCM } from '@ionic-native/fcm';
 import {NetworkProvider} from '../../providers/network/network';
-import { AdMobFree,AdMobFreeBannerConfig,AdMobFreeInterstitialConfig } from '@ionic-native/admob-free';
-
+import { AdMobFree,AdMobFreeBannerConfig,AdMobFreeInterstitialConfig} from '@ionic-native/admob-free';
+import { NavParams } from 'ionic-angular/navigation/nav-params';
 
 @Component({
   selector: 'page-home',
@@ -20,6 +20,10 @@ movies = [];
 items: any;
 searchQuery: string = '';
 mytoken:any;
+limit = 4;
+data = {
+  url:''
+}
 
   constructor(private adMobFree:AdMobFree,
               public navCtrl: NavController, 
@@ -28,9 +32,9 @@ mytoken:any;
               public loadingCtrl: LoadingController,
             public plt:Platform,
            public fcm:FCM,
-          public Network:NetworkProvider) {
+          public Network:NetworkProvider,public navParams:NavParams) {
 
-         
+         this.data.url = this.navParams.get('url');
                
 
             this.Network.watchcon();
@@ -48,10 +52,9 @@ mytoken:any;
                 });;
               });
               
-                this.fcm.onNotification().subscribe(data=>{
+                this.fcm.onNotification().subscribe((data)=>{
                   let alert = this.alertCtrl.create({
-                    title: 'აღწერა',
-                    subTitle: data.message,
+                    title: 'დაიდო ახალი კინო ',
                     buttons: ['დახურვა']
                     
                   });
@@ -68,31 +71,50 @@ mytoken:any;
      });
                 loader.present();
   this.http.get('https://myionicapp.000webhostapp.com/api.php?q=home')
-  .map(res => res.json())
-  .subscribe(res => {
+  .map((res) => res.json())
+  .subscribe((res) => {
 this.movies = res;
 this.items = this.movies.reverse();
 
 loader.dismiss();
 this.showBannerAd();
-setTimeout(this.showInterstitialAd(),4000);
+this.showInterstitialAd();
 
   });
   }
 
-
+  async showInterstitialAd() {
+    try {
+      const interstitialConfig: AdMobFreeInterstitialConfig = {
+        id: 'ca-app-pub-6370427711797263/8829887578',
+        isTesting: false,
+        autoShow: true,
+      }
+  
+      this.adMobFree.interstitial.config(interstitialConfig);
+  
+      const result = await this.adMobFree.interstitial.prepare();
+      console.log(result);
+    }
+    catch (e) {
+      console.error(e)
+    }
+  }
 
 
   initializeItems() {
     this.items = this.movies;
   }
  
+ 
     async showBannerAd() {
     try {
       const bannerConfig: AdMobFreeBannerConfig = {
        id: 'ca-app-pub-6370427711797263/5417078562',
         isTesting: false,
-        autoShow: true
+        autoShow: true,
+      bannerAtTop:true
+      
       }
 
       this.adMobFree.banner.config(bannerConfig);
@@ -109,35 +131,26 @@ setTimeout(this.showInterstitialAd(),4000);
   
 //srulad naxva
 
-  srulad(name,des,photo,videoSD,videoHD)  {
-
-    this.navCtrl.push(SruladPage,{name:name,des:des,photo:photo,videoSD:videoSD,videoHD:videoHD});
-  }
-
+srulad(name,des,photo,videoSD,videoHD)  {
+  
+      this.navCtrl.push(TabsPage,{name:name,des:des,photo:photo,videoSD:videoSD,videoHD:videoHD});
+    }
+  
 
 
 
 ///////////////////////////////////////////////////////////////////////////
-
-
-
-async showInterstitialAd() {
-  try {
-    const interstitialConfig: AdMobFreeInterstitialConfig = {
-      id: 'ca-app-pub-6370427711797263/8829887578',
-      isTesting: false,
-      autoShow: true
-    }
-
-    this.adMobFree.interstitial.config(interstitialConfig);
-
-    const result = await this.adMobFree.interstitial.prepare();
-    console.log(result);
-  }
-  catch (e) {
-    console.error(e)
-  }
+doInfinite(infiniteScroll) {
+  setTimeout(() => {
+    
+     this.limit+= 2;
+    console.log('Async operation has ended');
+    infiniteScroll.complete();
+  }, 1000);
 }
+
+
+
  
 
 
@@ -173,6 +186,8 @@ agwera(data) {
     });
     alert.present();
   }
+  
 }
+
 
  
