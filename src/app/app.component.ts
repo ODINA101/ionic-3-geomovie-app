@@ -26,21 +26,21 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'მთავარი', component: KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=home'},
-      { title: 'ანიმაციური', component: KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=animaciuri'},
-      {title:'საშინელება',component:KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=sashineleba'},
-      { title: 'სათავგადასავლო', component:KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=satavgadasavlo'},
-      { title: 'ისტორიული', component: KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=istoriuli'},
-      {title:'კომედიური',component:KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=komediuri'},
-      { title: 'ფანტასტიკური', component: KategoriaPage ,url:'https://myionicapp.000webhostapp.com/api.php?q=fantastika'},
-      { title: 'დრამა', component: KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=drama'},
-      { title: 'დოკუმენტრური', component: KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=dokumenturi' },
-      { title: 'ბოევიკი', component:KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=boeviki' },
-      { title: 'ბიოგრაფიული', component: KategoriaPage ,url:'https://myionicapp.000webhostapp.com/api.php?q=biografiuli'},
-      { title:'მძაფრსიუჟეტიანი',component:KategoriaPage ,url:'https://myionicapp.000webhostapp.com/api.php?q=mdzafrsiujetiani'},
-      {title:'თრილერი',component:KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=trileri'},
-      {title:'მისტიკური',component:KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=mistikuri'},
-      {title:'კრიმინალური',component:KategoriaPage,url:'https://myionicapp.000webhostapp.com/api.php?q=kriminaluri'}
+      { title: 'მთავარი', component: KategoriaPage,url:'http://samniashvili.online/api.php?q=home'},
+      { title: 'ანიმაციური', component: KategoriaPage,url:'http://samniashvili.online/api.php?q=animaciuri'},
+      {title:'საშინელება',component:KategoriaPage,url:'http://samniashvili.online/api.php?q=sashineleba'},
+      { title: 'სათავგადასავლო', component:KategoriaPage,url:'http://samniashvili.online/api.php?q=satavgadasavlo'},
+      { title: 'ისტორიული', component: KategoriaPage,url:'http://samniashvili.online/api.php?q=istoriuli'},
+      {title:'კომედიური',component:KategoriaPage,url:'http://samniashvili.online/api.php?q=komediuri'},
+      { title: 'ფანტასტიკური', component: KategoriaPage ,url:'http://samniashvili.online/api.php?q=fantastika'},
+      { title: 'დრამა', component: KategoriaPage,url:'http://samniashvili.online/api.php?q=drama'},
+      { title: 'დოკუმენტრური', component: KategoriaPage,url:'http://samniashvili.online/api.php?q=dokumenturi' },
+      { title: 'ბოევიკი', component:KategoriaPage,url:'http://samniashvili.online/api.php?q=boeviki' },
+      { title: 'ბიოგრაფიული', component: KategoriaPage ,url:'http://samniashvili.online/api.php?q=biografiuli'},
+      { title:'მძაფრსიუჟეტიანი',component:KategoriaPage ,url:'http://samniashvili.online/api.php?q=mdzafrsiujetiani'},
+      {title:'თრილერი',component:KategoriaPage,url:'http://samniashvili.online/api.php?q=trileri'},
+      {title:'მისტიკური',component:KategoriaPage,url:'http://samniashvili.online/api.php?q=mistika'},
+      {title:'კრიმინალური',component:KategoriaPage,url:'http://samniashvili.online/api.php?q=kriminaluri'}
      
     ];
      

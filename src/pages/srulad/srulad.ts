@@ -11,6 +11,17 @@ import { LoadingController } from 'ionic-angular';
   templateUrl: 'srulad.html',
 })
 export class SruladPage {
+   options = {
+    successCallback: function() {
+      console.log("Video was closed without error.");
+    },
+    errorCallback: function(errMsg) {
+      console.log("Error! " + errMsg);
+    },
+    orientation: 'landscape',
+    shouldAutoClose: false,  // true(default)/false
+    controls: true // true(default)/false. Used to hide controls on fullscreen
+  };
   item = {
     name:'',
     description:'',
@@ -30,6 +41,7 @@ export class SruladPage {
 
   this.item.videoSD = this.navParams.get('videoSD');
   this.item.videoHD = this.navParams.get('videoHD');
+  
   }
 
   ionViewDidLoad() {
@@ -38,6 +50,7 @@ export class SruladPage {
 setroot() {
   this.app.getRootNav().setRoot(HomePage);
 }
+
  
   videoshow() {
     let actionSheet = this.actionSheetCtrl.create({
@@ -47,20 +60,14 @@ setroot() {
           text: 'მაღალი ხარისხი',
           role: 'destructive',
           handler: () => {
-            let options:StreamingVideoOptions = {
-              successCallback:()=>{console.log('ariis')},
-              errorCallback:()=>{console.log()}
-            }
-            this.SMedia.playVideo(this.item.videoHD,options);
+            
+            this.SMedia.playVideo(this.item.videoHD,this.options);
           }
         },{
           text: 'დაბალი ხარისხი',
           handler: () => {
-            let options:StreamingVideoOptions = {
-              successCallback:()=>{console.log('ariis')},
-              errorCallback:()=>{console.log()}
-            }
-            this.SMedia.playVideo(this.item.videoSD,options);
+            
+            this.SMedia.playVideo(this.item.videoSD,this.options);
           }
         },{
           text: 'დახურვა',

@@ -70,7 +70,7 @@ data = {
    content: "იტვირთება...",
      });
                 loader.present();
-  this.http.get('https://myionicapp.000webhostapp.com/api.php?q=home')
+  this.http.get('http://samniashvili.online/api.php?q=home')
   .map((res) => res.json())
   .subscribe((res) => {
 this.movies = res;
